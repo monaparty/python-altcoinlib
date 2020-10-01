@@ -19,7 +19,7 @@ import bitcoin
 # Note that setup.py can break if __init__.py imports any external
 # dependencies, as these might not be installed when setup.py runs. In this
 # case __version__ could be moved to a separate version.py and imported here.
-__version__ = '0.4.0'
+__version__ = '0.11.0-SNAPSHOT'
 
 # Litecoin main/testnet information  
 #
@@ -55,6 +55,7 @@ class LtcMainParams(CoreLtcMainParams):
     BASE58_PREFIXES = {'PUBKEY_ADDR':48,
                        'SCRIPT_ADDR':5,
                        'SECRET_KEY' :176}
+    BECH32_HRP = 'ltc'
 
 class LtcTestNetParams(CoreLtcTestNetParams):
     MESSAGE_START = b'\xfc\xc1\xb7\xdc'
@@ -66,12 +67,14 @@ class LtcTestNetParams(CoreLtcTestNetParams):
     BASE58_PREFIXES = {'PUBKEY_ADDR':111,
                        'SCRIPT_ADDR':196,
                        'SECRET_KEY' :239}
+    BECH32_HRP = 'tltc'
 
 
 # Dogecoin main/testnet information  
 # 
 # See 
 # https://github.com/dogecoin/dogecoin/blob/1.8-maint/src/chainparams.cpp
+# There is no bech32 support.
 
 class DogeMainParams(CoreDogeMainParams):
     MESSAGE_START = b'\xc0\xc0\xc0\xc0'
@@ -97,7 +100,7 @@ class DogeTestNetParams(CoreDogeTestNetParams):
 # Monacoin main/testnet information
 #
 # See
-# https://github.com/dogecoin/dogecoin/blob/1.8-maint/src/chainparams.cpp
+# https://github.com/monacoinproject/monacoin/blob/master-0.17/src/chainparams.cpp
 
 class MonaMainParams(CoreMonaMainParams):
     MESSAGE_START = b'\xfb\xc0\xb6\xdb'
@@ -109,6 +112,7 @@ class MonaMainParams(CoreMonaMainParams):
                        'SCRIPT_ADDR2':55,
                        'SECRET_KEY' :176,
                        'OLD_SECRET_KEY' :178}
+    BECH32_HRP = 'mona'
 
 class MonaTestNetParams(CoreMonaTestNetParams):
     MESSAGE_START = b'\xfb\xd2\xc8\xf1'
@@ -120,6 +124,7 @@ class MonaTestNetParams(CoreMonaTestNetParams):
                        'SCRIPT_ADDR2':117,
                        'SECRET_KEY' :239,
                        'OLD_SECRET_KEY' :239}
+    BECH32_HRP = 'tmona'
 
 available_params = {}
 
